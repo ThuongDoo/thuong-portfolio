@@ -1,113 +1,85 @@
-// data
-const workSlides = {
-  slides: [
-    {
-      images: [
-        {
-          title: "title",
-          path: "/thumb1.jpg",
-        },
-        {
-          title: "title",
-          path: "/thumb2.jpg",
-        },
-        {
-          title: "title",
-          path: "/thumb3.jpg",
-        },
-        {
-          title: "title",
-          path: "/thumb4.jpg",
-        },
-      ],
-    },
-    {
-      images: [
-        {
-          title: "title",
-          path: "/thumb4.jpg",
-        },
-        {
-          title: "title",
-          path: "/thumb1.jpg",
-        },
-        {
-          title: "title",
-          path: "/thumb2.jpg",
-        },
-        {
-          title: "title",
-          path: "/thumb3.jpg",
-        },
-      ],
-    },
-  ],
-};
-
-// next image
 import Image from "next/image";
-
-// import swiper react components
 import { Swiper, SwiperSlide } from "swiper/react";
-
-// import swiper styles
 import "swiper/css";
-import "swiper/css/free-mode";
 import "swiper/css/pagination";
+import { Pagination, Autoplay } from "swiper";
 
-// import required modules
-import { Pagination } from "swiper";
-
-// icons
-import { BsArrowRight } from "react-icons/bs";
+const workSlides = [
+  {
+    title: "09.2020 - Đại học Giao thông Vận tải TPHCM",
+    description:
+      "Bắt đầu hành trình học tập ngành Công nghệ Thông tin tại trường Đại học Giao thông Vận tải TP.HCM, nơi tôi khám phá đam mê công nghệ và lập trình.",
+    path: "/work1.jpg",
+  },
+  {
+    title: "05.2022 - Công ty Cổ phần Giáo dục Quốc tế ECORP",
+    description:
+      "Tham gia làm tư vấn viên, tận tâm hỗ trợ khách hàng và góp phần nâng cao trải nghiệm học tập tại Trung tâm Anh ngữ ECORP, nơi tôi phát triển các kỹ năng mềm.",
+    path: "/work2.jpg",
+  },
+  {
+    title: "12.2022 - Học tiếng Anh tại ECORP",
+    description:
+      "Nâng cao kỹ năng tiếng Anh giao tiếp để mở rộng cơ hội phát triển bản thân và thuận lợi trong công việc sau này.",
+    path: "/work3.png",
+  },
+  {
+    title: "06.2023 - Lập trình viên web - Chứng khoán XYZ",
+    description:
+      "Phát triển các ứng dụng web phục vụ lĩnh vực chứng khoán, áp dụng kiến thức lập trình để giải quyết các bài toán thực tế.",
+    path: "/work4.png",
+  },
+  {
+    title: "06.2024 - Vi tính Trường Thịnh",
+    description:
+      "Tham gia khóa đào tạo kỹ thuật vi tính chuyên sâu, nâng cao kỹ năng bảo trì và xử lý sự cố phần cứng máy tính.",
+    path: "/work6.webp",
+  },
+  {
+    title: "12.2024 - Tốt nghiệp Cử nhân Công nghệ Thông tin",
+    description:
+      "Vinh dự nhận bằng cử nhân Công nghệ Thông tin, sẵn sàng bước vào giai đoạn phát triển sự nghiệp với nền tảng vững chắc.",
+    path: "/work5.png",
+  },
+  {
+    title: "09.2024 - Công Ty TNHH TMDV Công Nghệ & Kỹ Thuật Trung Tín",
+    description:
+      "Đảm nhận vị trí kỹ thuật viên vi tính và máy in, đảm bảo thiết bị hoạt động hiệu quả và hỗ trợ khách hàng tại nhà.",
+    path: "/work7.jpg",
+  },
+];
 
 const WorkSlider = () => {
   return (
     <Swiper
-      spaceBetween={10}
-      pagination={{
-        clickable: true,
+      spaceBetween={20}
+      pagination={{ clickable: true }}
+      autoplay={{
+        delay: 4000, // 4 giây mỗi slide
+        disableOnInteraction: false, // vẫn auto khi user thao tác
       }}
-      modules={[Pagination]}
-      className=" h-[280px] sm:h-[480px]"
+      modules={[Pagination, Autoplay]}
+      className="h-[400px] xl:h-[600px] max-w-[600px] xl:max-w-none mx-auto"
+      loop={true} // lặp vô hạn
     >
-      {workSlides.slides.map((slide, index) => {
-        return (
-          <SwiperSlide key={index}>
-            <div className=" grid grid-cols-2 grid-rows-2 gap-4 cursor-pointer">
-              {slide.images.map((image, index) => {
-                return (
-                  <div
-                    key={index}
-                    className=" relative rounded-lg overflow-hidden flex items-center justify-center group "
-                  >
-                    <div className=" flex items-center justify-center relative overflow-hidden">
-                      {/* image  */}
-                      <Image src={image.path} width={500} height={300} alt="" />
-                    </div>
-                    {/* overlay gradient */}
-                    <div className=" absolute inset-0 bg-gradient-to-l from-transparent via-[#e838cc] to-[#4a22bd] opacity-0 group-hover:opacity-80 transition-all duration-700"></div>
-                    {/* title */}
-                    <div className=" absolute bottom-0 translate-y-full group-hover:-translate-y-10 group-hover:xl:-translate-y-20 transition-all duration-300">
-                      <div className=" flex items-center gap-x-2 text-[13px] tracking-[0.2em]">
-                        {/* title part 1  */}
-                        <div className=" delay-100">LIVE</div>
-                        {/* title part 2  */}
-                        <div className=" translate-y-[500%] group-hover:translate-y-0 transition-all duration-300 delay-150">
-                          PROJECT
-                        </div>
-                        <div className=" text-xl translate-y-[500%] group-hover:translate-y-0 transition-all duration-300 delay-200">
-                          <BsArrowRight />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </SwiperSlide>
-        );
-      })}
+      {workSlides.map((slide, index) => (
+        <SwiperSlide key={index} className="flex flex-col items-center ">
+          <div className="relative w-full h-64 xl:h-96 rounded-lg overflow-hidden">
+            <Image
+              src={slide.path}
+              alt={slide.title}
+              fill
+              style={{ objectFit: "cover" }}
+              sizes="(max-width: 640px) 100vw, 600px"
+              priority={index === 0} // ưu tiên load ảnh đầu
+            />
+          </div>
+          <h3 className="mt-4 text-sm xl:text-2xl font-semibold text-white">
+            {slide.title}
+          </h3>
+          <p className="mt-2 text-gray-300 text-base">{slide.description}</p>
+        </SwiperSlide>
+      ))}
     </Swiper>
   );
 };

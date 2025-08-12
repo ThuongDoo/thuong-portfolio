@@ -5,7 +5,7 @@ import "swiper/css/free-mode";
 import { RxArrowTopRight } from "react-icons/rx";
 import { LuMonitor, LuPrinter, LuCode2 } from "react-icons/lu";
 
-import { FreeMode } from "swiper";
+import { Autoplay, FreeMode, Pagination } from "swiper";
 
 const serviceData = [
   {
@@ -27,50 +27,51 @@ const serviceData = [
 
 const ServiceSlider = () => {
   return (
-    <>
-      <Swiper
-        breakpoints={{
-          320: { slidesPerView: 1, spaceBetween: 15 },
-          640: { slidesPerView: 3, spaceBetween: 15 },
-        }}
-        freeMode={true}
-        pagination={false}
-        modules={[FreeMode]}
-        className="h-[240px] sm:h-[340px] "
-        style={{ paddingBottom: 0, marginBottom: 0 }}
-      >
-        {serviceData.map((item, index) => (
-          <SwiperSlide
-            key={index}
-            style={{ height: "100%", marginBottom: 0, paddingBottom: 0 }}
-          >
-            <div className="bg-[rgba(65,47,123,0.15)] h-full justify-around rounded-lg px-6 py-8  flex sm:flex-col gap-x-6 sm:gap-x-0 group cursor-pointer hover:bg-[rgba(89,65,169,0.15)] transition-all duration-300">
-              <div className="text-4xl text-accent mb-4">{item.icon}</div>
-              <div className="mb-8">
-                <div className="mb-2 text-lg">{item.title}</div>
-                <p className="max-w-[350px] leading-normal">
+    <Swiper
+      breakpoints={{
+        320: { slidesPerView: 1, spaceBetween: 15 }, // mobile nhỏ
+        760: { slidesPerView: 2, spaceBetween: 15 }, // sm
+        1024: { slidesPerView: 3, spaceBetween: 15 },
+      }}
+      freeMode={true}
+      pagination={{
+        clickable: true,
+      }}
+      autoplay={{
+        delay: 4000, // 4 giây mỗi slide
+        disableOnInteraction: false, // vẫn auto khi user thao tác
+      }}
+      speed={800}
+      grabCursor={true}
+      modules={[FreeMode, Pagination, Autoplay]}
+      className=" sm:h-[340px]"
+    >
+      {serviceData.map((item, index) => {
+        return (
+          <SwiperSlide key={index}>
+            <div className=" bg-[rgba(65,47,123,0.15)] rounded-lg px-6 mx-10 md:mx-0 py-8 flex sm:flex-col gap-x-6 sm:gap-x-0 group cursor-pointer hover:bg-[rgba(89,65,169,0.15)] transition-all duration-300">
+              {/* icon  */}
+              <div className=" text-3xl sm:text-4xl text-accent mb-3 sm:mb-4">
+                {item.icon}
+              </div>
+              {/* title & decs  */}
+              <div className=" sm:mb-8">
+                <div className=" text-base sm:text-lg md:text-xl mb-1 sm:mb-2">
+                  {item.title}
+                </div>
+                <p className=" max-w-[300px] sm:max-w-[350px] leading-normal text-sm sm:text-base">
                   {item.description}
                 </p>
               </div>
-              <div className="text-3xl">
-                <RxArrowTopRight className="group-hover:rotate-45 group-hover:text-accent transition-all duration-300" />
+              {/* arrow  */}
+              <div className=" text-3xl">
+                <RxArrowTopRight className=" group-hover:rotate-45 group-hover:text-accent transition-all duration-300" />
               </div>
             </div>
           </SwiperSlide>
-        ))}
-      </Swiper>
-
-      <style jsx>{`
-        :global(.swiper) {
-          padding-bottom: 0 !important;
-          margin-bottom: 0 !important;
-        }
-        :global(.swiper-slide) {
-          margin-bottom: 0 !important;
-          padding-bottom: 0 !important;
-        }
-      `}</style>
-    </>
+        );
+      })}
+    </Swiper>
   );
 };
 

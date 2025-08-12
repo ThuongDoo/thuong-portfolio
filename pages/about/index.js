@@ -53,7 +53,7 @@ const aboutData = [
         stage: "Tiếng Anh giao tiếp - Trường Anh ngữ quốc tế Ecorp",
       },
       {
-        title: "09.2020 - 09.2024",
+        title: "09.2020 - 12.2024",
         stage: "Cử nhân Công nghệ thông tin - Đại học Giao thông Vận tải TPHCM",
       },
       {
@@ -95,7 +95,7 @@ const About = () => {
   const [index, setIndex] = useState(0);
 
   return (
-    <div className=" h-full bg-primary/30 py-32 text-center xl:text-left">
+    <div className=" h-full bg-primary/30 py-32 text-center md:text-left ">
       <Circles />
       {/* avatar img */}
       {/* <motion.div
@@ -107,7 +107,7 @@ const About = () => {
       >
         <Avatar />
       </motion.div> */}
-      <div className=" container mx-auto h-full flex flex-col items-center xl:flex-row gap-x-6">
+      <div className=" container mx-auto h-full flex flex-col items-center md:flex-row gap-x-6">
         {/* text */}
         <div className=" flex flex-1 flex-col justify-center">
           <motion.h2
@@ -115,9 +115,9 @@ const About = () => {
             initial="hidden"
             animate="show"
             exit="hidden"
-            className=" h2"
+            className=" h2 text-2xl md:text-4xl xl:text-5xl "
           >
-            Hành trình <br />
+            Hành trình <br className=" hidden md:block" />
             <span className=" text-accent"> đam mê</span> và{" "}
             <span className=" text-accent">phát triển.</span>
             {/* <span className=" text-accent"> phần mềm.</span> */}
@@ -127,7 +127,7 @@ const About = () => {
             initial="hidden"
             animate="show"
             exit="hidden"
-            className=" max-w-[500px] mx-auto xl:mx-0 mb-6 xl:mb-12 px-2 xl:px-0"
+            className=" max-w-[500px] mx-auto md:mx-0 mb-6 md:mb-12 px-2 md:px-0 text-sm md:text-base"
           >
             Tôi luôn đặt sự hài lòng của khách hàng lên hàng đầu bằng phong cách
             làm việc tận tâm, nhanh chóng và chính xác. Mang đến các giải pháp
@@ -140,7 +140,7 @@ const About = () => {
             initial="hidden"
             animate="show"
             exit="hidden"
-            className=" hidden md:flex md:max-w-xl xl:max-w-none mx-auto xl:mx-0 mb-8"
+            className=" w-full px-10 md:px-0  md:flex md:max-w-xl  xl:max-w-none mx-auto md:mx-0 mb-8"
           >
             <div className=" flex flex-1 xl:gap-x-6">
               {/* experience */}
@@ -153,8 +153,8 @@ const About = () => {
                 </div>
               </div> */}
               {/* clients */}
-              <div className="relative flex-1 flex text-center after:w-[1px] after:h-full after:bg-white/10 after:absolute after:top-0 after:right-0">
-                <div className="text-2xl xl:text-3xl font-extrabold text-accent mb-2">
+              <div className="relative  flex-1 flex text-center after:w-[1px] after:h-full after:bg-white/10 after:absolute after:top-0 after:right-0">
+                <div className="text-lg sm:text-xl xl:text-3xl font-extrabold text-accent mb-2">
                   <CountUp start={0} end={1800} duration={5} /> +
                 </div>
                 <div className=" text-xs uppercase tracking-[1px] leading-[1.4] max-w-[150px] mx-auto">
@@ -162,7 +162,7 @@ const About = () => {
                 </div>
               </div>
               <div className="relative flex-1 flex text-center after:w-[1px] after:h-full  after:absolute after:top-0 after:right-0">
-                <div className="text-2xl xl:text-3xl font-extrabold text-accent mb-2">
+                <div className="text-lg sm:text-xl xl:text-3xl  font-extrabold text-accent mb-2">
                   <CountUp start={0} end={90} duration={5} /> %
                 </div>
                 <div className=" text-xs uppercase tracking-[1px] leading-[1.4] max-w-[150px] mx-auto">
@@ -197,17 +197,17 @@ const About = () => {
           initial="hidden"
           animate="show"
           exit="hidden"
-          className=" flex flex-col w-full xl:max-w-[48%] h-[380px] "
+          className=" flex flex-col w-full md:max-w-[48%] h-[380px] "
         >
-          <div className=" flex gap-x-4 xl:gap-x-8 mx-auto xl:mx-0 mb-4">
+          <div className=" flex gap-x-4 md:gap-x-8 mx-auto md:mx-0 mb-4">
             {aboutData.map((item, itemIndex) => {
               return (
                 <div
                   key={itemIndex}
                   className={`${
                     index === itemIndex &&
-                    "text-accent after:w-[100%] after:bg-accent after:transition-all after:duration-300"
-                  } cursor-pointer capitalize xl:text-lg relative after:w-8 after:h-[2px] after:bg-white after:absolute after:-bottom-1 after:left-0 z-0`}
+                    "text-accent  after:w-[100%] after:bg-accent after:transition-all after:duration-300"
+                  } cursor-pointer capitalize relative after:w-8 after:h-[2px] after:bg-white after:absolute after:-bottom-1 after:left-0 z-0`}
                   onClick={() => setIndex(itemIndex)}
                 >
                   {item.title}
@@ -219,7 +219,9 @@ const About = () => {
             {aboutData[index].info.map((item, itemIndex) => (
               <div key={itemIndex} className="text-white/90">
                 {/* Title */}
-                <div className="font-semibold text-white">{item.title}</div>
+                <div className="font-semibold text-white text-sm md:text-lg">
+                  {item.title}
+                </div>
 
                 {/* Stage */}
                 {Array.isArray(item.stage) ? (
@@ -229,7 +231,9 @@ const About = () => {
                     ))}
                   </ul>
                 ) : (
-                  <div className="ml-4 mt-1 text-white/60">{item.stage}</div>
+                  <div className="ml-4 mt-1 text-white/60 text-sm xl:text-base">
+                    {item.stage}
+                  </div>
                 )}
               </div>
             ))}

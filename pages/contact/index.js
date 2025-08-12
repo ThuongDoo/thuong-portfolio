@@ -89,7 +89,7 @@ const Contact = () => {
           initial="hidden"
           animate="show"
           exit="hidden"
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-10 max-w-6xl w-full"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 xl:gap-6 sm:gap-10 max-w-6xl w-full"
         >
           {contactInfo.map(({ label, value, href, isNewTab }) => (
             <div
@@ -102,7 +102,7 @@ const Contact = () => {
                   handleClick(href, isNewTab);
                 }
               }}
-              className="bg-black/30 backdrop-blur-md rounded-xl p-6 shadow-lg cursor-pointer
+              className="bg-black/30 backdrop-blur-md rounded-xl p-2 xl:p-6 shadow-lg cursor-pointer
                 transition duration-400 ease-in-out hover:bg-gradient-to-r hover:from-red-700 hover:via-red-800 hover:to-red-900
                 hover:shadow-[0_0_25px_rgb(220,38,38)] hover:text-white"
             >
