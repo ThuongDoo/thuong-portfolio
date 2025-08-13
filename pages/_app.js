@@ -46,7 +46,7 @@ function MyApp({ Component, pageProps }) {
         <meta property="og:title" content="Đỗ Mạnh Thường - Dịch Vụ Web & IT" />
         <meta
           property="og:description"
-          content="Portfolio và dịch vụ lập trình web của Đỗ Mạnh Thường"
+          content="Trang web của Đỗ Mạnh Thường"
         />
         <meta
           property="og:image"
