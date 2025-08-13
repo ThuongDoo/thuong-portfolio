@@ -43,6 +43,32 @@ function MyApp({ Component, pageProps }) {
           content="Đỗ Mạnh Thường - Dịch Vụ Web & IT"
         />
         <link rel="manifest" href="/favicon/site.webmanifest" />
+        <meta property="og:title" content="Đỗ Mạnh Thường - Dịch Vụ Web & IT" />
+        <meta
+          property="og:description"
+          content="Portfolio và dịch vụ lập trình web của Đỗ Mạnh Thường"
+        />
+        <meta
+          property="og:image"
+          content="https://thuongdo.workfolio.asia/thumbnail.png"
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://thuongdo.workfolio.asia" />
+
+        {/* Twitter Card (phòng khi share qua Twitter) */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="Đỗ Mạnh Thường - Dịch Vụ Web & IT"
+        />
+        <meta
+          name="twitter:description"
+          content="Portfolio và dịch vụ lập trình web của Đỗ Mạnh Thường"
+        />
+        <meta
+          name="twitter:image"
+          content="https://thuongdo.workfolio.asia/thumbnail.png"
+        />
       </Head>
 
       <Layout>
