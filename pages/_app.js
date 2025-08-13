@@ -50,7 +50,7 @@ function MyApp({ Component, pageProps }) {
         />
         <meta
           property="og:image"
-          content="https://thuongdo.workfolio.asia/thumbnail.png"
+          content="https://thuongdo.workfolio.asia/thumbnail2.png"
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://thuongdo.workfolio.asia" />
@@ -67,7 +67,7 @@ function MyApp({ Component, pageProps }) {
         />
         <meta
           name="twitter:image"
-          content="https://thuongdo.workfolio.asia/thumbnail.png"
+          content="https://thuongdo.workfolio.asia/thumbnail2.png"
         />
       </Head>
 
